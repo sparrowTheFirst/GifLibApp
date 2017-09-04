@@ -1,8 +1,10 @@
 package pl.alkademiakodu.kwejk.dao;
 
+import pl.alkademiakodu.kwejk.Model.Gif;
+
 import java.util.List;
 
 public interface GifDao {
-    List<Gift> findByName();
-    List<Gift> findAll();
+    List<Gif> findByName();
+    List<Gif> findAll(String name);
 }
