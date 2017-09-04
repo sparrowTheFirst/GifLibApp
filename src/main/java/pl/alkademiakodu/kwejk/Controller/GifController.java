@@ -23,7 +23,7 @@ public class GifController {
 
     @GetMapping("/gif/{name}")
     public String homeResult (@PathVariable String name, ModelMap modelMap) {
-        modelMap.addAttribute("gif",gifDao.findByName(name));
+        modelMap.addAttribute("gif", gifDao.findByName(name).get(0));
         return "gif-details";
     }
 }

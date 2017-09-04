@@ -5,6 +5,7 @@ import pl.alkademiakodu.kwejk.Model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -17,6 +18,9 @@ public class GifDaoImp implements GifDao {
 
     private static List<String> names = new ArrayList<>();
 
+    public static List<String> getNames() {
+        return names;
+    }
 
     static {
         names.add("android-explosion");
@@ -28,17 +32,15 @@ public class GifDaoImp implements GifDao {
 
     @Override
     public List<Gif> findByName(String name) {
-        return null;
+        return findAll().stream().filter((p)-> p.getName().equals(name)).collect(Collectors.toList());
     }
 
     @Override
     public List<Gif> findAll(){
-        List<Gif> gifs=new ArrayList<>();
-        int i=1;
+        List<Gif> gifs = new ArrayList<>();
+        int i = 1;
         for (String n : names) {
-            gifs.add(new Gif(n,"Username"+i++));
-
+            gifs.add(new Gif(n,"Username"+ i++));
         }return gifs;
-
     }
 }
