@@ -7,6 +7,5 @@ import java.util.List;
 public interface GifDao {
 
     List<Gif> findByName(String name);
-
     List<Gif> findAll();
 }
