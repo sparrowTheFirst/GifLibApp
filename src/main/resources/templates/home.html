@@ -45,9 +45,20 @@
     </div>
     <div class="gifs container">
         <div class="row">
-           
+            <div th:each="gif : ${gifs}" class="col s12 l4">
+                <a th:href="@{|/gif/${gif.name}|}">
+                    <img th:src="@{|/gifs/${gif.name}.gif|}" />
+                </a>
+            </div>
         </div>
     </div>
+
+
+
+
+
+
+
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>

@@ -17,7 +17,8 @@ public class GifController {
     private GifDao gifDao;
 
     @GetMapping("/")
-    public String home(){
+    public String home(ModelMap modelMap){
+        modelMap.addAttribute("gifs",gifDao.findAll());
         return "home";
     }
 
