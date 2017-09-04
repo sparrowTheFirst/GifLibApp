@@ -15,16 +15,15 @@ public class GifDaoImp implements GifDao {
 
     public GifDaoImp(){}
 
-    private static List<String> name = new ArrayList<>();
+    private static List<String> names = new ArrayList<>();
 
 
     static {
-        name.add("android-explosion");
-        name.add("ben-and-mike");
-        name.add("book-dominos");
-        name.add("compiler-bot");
-        name.add("cowboy-coder");
-        name.add("infinite-andrew");
+        names.add("android-explosion");
+        names.add("ben-and-mike");
+        names.add("compiler-bot");
+        names.add("cowboy-coder");
+        names.add("infinite-andrew");
     }
 
     @Override
@@ -36,8 +35,8 @@ public class GifDaoImp implements GifDao {
     public List<Gif> findAll(){
         List<Gif> gifs=new ArrayList<>();
         int i=1;
-        for (String name:name) {
-            gifs.add(new Gif(name,"Username"+i++));
+        for (String n : names) {
+            gifs.add(new Gif(n,"Username"+i++));
 
         }return gifs;
 
