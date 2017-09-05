@@ -1,6 +1,7 @@
 package pl.alkademiakodu.kwejk.dao;
 
 import org.springframework.stereotype.Component;
+import pl.alkademiakodu.kwejk.Model.Category;
 import pl.alkademiakodu.kwejk.Model.Gif;
 
 import java.util.ArrayList;
@@ -61,4 +62,17 @@ public class GifDaoImp implements GifDao {
         }
         return gifs;
         }
-    }
+
+
+
+
+        @Override
+        public List<Category> addCategories(){
+        List<Category> categories = new ArrayList<>();
+        categories.add(new Category("People mems",1));
+        categories.add(new Category("Creature mems",2));
+        return categories;
+        }
+
+
+}
