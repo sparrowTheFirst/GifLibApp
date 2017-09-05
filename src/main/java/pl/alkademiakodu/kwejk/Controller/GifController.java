@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.alkademiakodu.kwejk.dao.GifDao;
 
@@ -33,6 +32,8 @@ public class GifController {
     @GetMapping("/search")
     public String search (@RequestParam String q, ModelMap modelMap){
         modelMap.addAttribute("gifs", gifDao.findByName(q));
+        if ( gifDao.findByName(q).isEmpty())
+            modelMap.addAttribute("comment", "Nic nie znaleziono!");
         return "home";
     }
 
@@ -41,5 +42,4 @@ public class GifController {
         modelMap.addAttribute("gifs",gifDao.findFavorite());
         return "favorites";
     }
-
 }
