@@ -32,13 +32,15 @@ public class GifController {
         return "gif-details";
     }
 
-
-
-
-
     @GetMapping("/favorites")
         public String favoriteGifs(ModelMap modelMap){
         modelMap.addAttribute("gifs",gifDao.findFavorite());
         return "favorites";
+    }
+
+    @GetMapping("/categories")
+    public String categories(ModelMap modelMap){
+            modelMap.addAttribute("categories",gifDao.addCategories());
+            return "categories";
     }
 }
