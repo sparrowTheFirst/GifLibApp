@@ -30,6 +30,8 @@ public class GifDaoImp implements GifDao {
         names.add("infinite-andrew");
     }
 
+
+
     @Override
     public List<Gif> findByName(String name) {
         return findAll().stream().filter((p)-> p.getName().equals(name)).collect(Collectors.toList());
@@ -40,7 +42,29 @@ public class GifDaoImp implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         int i = 1;
         for (String n : names) {
-            gifs.add(new Gif (n,"Username "+ i++));
+            Gif gif = new Gif (n,"Username "+ i++);
+            if ( i%2==0){
+                gif.setFavorite(true);
+            }
+            else{
+                gif.setFavorite(false);
+            }
+            gifs.add(gif);
         }return gifs;
     }
-}
+
+
+
+
+
+    @Override
+    public List<Gif> findFavorite() {
+        List<Gif> gifs = new ArrayList<>();
+        int i=1;
+        for (Gif gif : findAll()) {
+           if ( gif.isFavorite())
+               gifs.add(gif);
+        }
+        return gifs;
+        }
+    }

@@ -7,6 +7,15 @@ public class Gif {
 
     private String name;
     private String username;
+    private boolean isFavorite;
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 
     public String getName() {
         return name;
@@ -27,5 +36,9 @@ public class Gif {
     public Gif(String name, String username) {
         this.name = name;
         this.username = username;
+    }
+
+    public Gif(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 }
