@@ -40,7 +40,7 @@ public class GifDaoImp implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         int i = 1;
         for (String n : names) {
-            gifs.add(new Gif(n,"Username"+ i++));
+            gifs.add(new Gif (n,"Username "+ i++));
         }return gifs;
     }
 }
