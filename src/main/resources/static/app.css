@@ -300,3 +300,12 @@ nav ul li.active, nav ul li:hover {
         margin-left: 0.8rem;
     }
 }
+
+.input-field input[type="submit"] {
+    float: right;
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    top: 3px;
+    font-size: 30px;
+}

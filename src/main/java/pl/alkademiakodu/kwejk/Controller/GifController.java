@@ -5,11 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import pl.alkademiakodu.kwejk.Model.Gif;
-import pl.alkademiakodu.kwejk.dao.GifDao;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
+import pl.alkademiakodu.kwejk.dao.GifDao;
 
 /**
  * Created by User on 2017-09-04.
@@ -32,11 +30,18 @@ public class GifController {
         return "gif-details";
     }
 
+    @GetMapping("/search")
+    public String search (@RequestParam String q, ModelMap modelMap){
+        modelMap.addAttribute("gifs", gifDao.findByName(q));
+        return "home";
+    }
+
     @GetMapping("/favorites")
         public String favoriteGifs(ModelMap modelMap){
         modelMap.addAttribute("gifs",gifDao.findFavorite());
         return "favorites";
     }
+
 
     @GetMapping("/categories")
     public String categories(ModelMap modelMap){
