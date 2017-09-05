@@ -66,6 +66,15 @@ nav ul li.active, nav ul li:hover {
     background-color: transparent;
 }
 
+.input-field input[type="submit"] {
+    float: right;
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    top: 3px;
+    font-size: 30px;
+}
+
 .search-bar .input-field input ~ .material-icons, .search-bar .input-field input:focus ~ .material-icons {
     top: 0.5rem;
     color: #896bb3;
@@ -301,11 +310,3 @@ nav ul li.active, nav ul li:hover {
     }
 }
 
-.input-field input[type="submit"] {
-    float: right;
-    position: absolute;
-    right: 10px;
-    background-color: transparent;
-    top: 3px;
-    font-size: 30px;
-}
