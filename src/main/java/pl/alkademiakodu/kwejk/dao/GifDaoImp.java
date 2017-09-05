@@ -42,7 +42,7 @@ public class GifDaoImp implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         int i = 1;
         for (String n : names) {
-            Gif gif = new Gif(n,"Username"+ i++);
+            Gif gif = new Gif (n,"Username "+ i++);
             if ( i%2==0){
                 gif.setFavorite(true);
             }
@@ -50,7 +50,6 @@ public class GifDaoImp implements GifDao {
                 gif.setFavorite(false);
             }
             gifs.add(gif);
-
         }return gifs;
     }
 
