@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.alkademiakodu.kwejk.Model.Category;
+import pl.alkademiakodu.kwejk.Model.Gif;
 import pl.alkademiakodu.kwejk.dao.GifDao;
 import java.util.List;
 
@@ -60,6 +61,11 @@ public class GifController {
         @RequestMapping("/categories")
         public List<Category> getCategories(){
             return gifDao.addCategories();
+        }
+
+        @RequestMapping("/gifs")
+        public List<Gif> getGifs (String q) {
+            return gifDao.findByName(q);
         }
 }
 }
