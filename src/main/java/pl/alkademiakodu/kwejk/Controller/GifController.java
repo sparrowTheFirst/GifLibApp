@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import pl.alkademiakodu.kwejk.Model.Category;
 import pl.alkademiakodu.kwejk.dao.GifDao;
+import java.util.List;
 
 /**
  * Created by User on 2017-09-04.
