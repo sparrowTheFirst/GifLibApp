@@ -44,10 +44,9 @@ public class GifController {
     }
 
     @GetMapping("/categories")
-    public String categories(@RequestParam String q, ModelMap modelMap){
+    public String categories( ModelMap modelMap){
             modelMap.addAttribute("categories",gifDao.addCategories());
 
             return "categories";
     }
-
 }
