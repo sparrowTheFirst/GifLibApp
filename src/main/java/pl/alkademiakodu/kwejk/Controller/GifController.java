@@ -47,4 +47,17 @@ public class GifController {
             modelMap.addAttribute("categories",gifDao.addCategories());
             return "categories";
     }
+
+    @RestController
+    @RequestMapping("/api")
+    public class CategoryApiController{
+
+        @Autowired
+        private GifDao gifDao;
+
+        @RequestMapping("/categories")
+        public List<Category> getCategories(){
+            return gifDao.addCategories();
+        }
+}
 }
