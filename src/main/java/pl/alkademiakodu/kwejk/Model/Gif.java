@@ -8,6 +8,7 @@ public class Gif {
     private String name;
     private String username;
     private boolean isFavorite;
+    //category
 
     public boolean isFavorite() {
         return isFavorite;
