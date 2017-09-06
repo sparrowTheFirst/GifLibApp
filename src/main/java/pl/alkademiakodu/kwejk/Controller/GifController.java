@@ -3,10 +3,11 @@ package pl.alkademiakodu.kwejk.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import pl.alkademiakodu.kwejk.Model.Category;
 import pl.alkademiakodu.kwejk.dao.GifDao;
+
+import java.util.List;
 
 /**
  * Created by User on 2017-09-04.
@@ -44,10 +45,9 @@ public class GifController {
     }
 
     @GetMapping("/categories")
-    public String categories( ModelMap modelMap){
+
+    public String categories(ModelMap modelMap){
             modelMap.addAttribute("categories",gifDao.addCategories());
             return "categories";
     }
-    
-
 }
