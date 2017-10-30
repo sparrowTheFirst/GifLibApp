@@ -9,9 +9,6 @@ import pl.alkademiakodu.kwejk.Model.Gif;
 import pl.alkademiakodu.kwejk.dao.GifDao;
 import java.util.List;
 
-/**
- * Created by User on 2017-09-04.
- */
 @Controller
 public class GifController {
 

@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 @Component
 public class GifDaoImp implements GifDao {
 
-    public GifDaoImp(){}
+    public GifDaoImp() {
+    }
 
     private static List<String> names = new ArrayList<>();
 
@@ -33,46 +34,44 @@ public class GifDaoImp implements GifDao {
 
     @Override
     public List<Gif> findByName(String name) {
-        return findAll().stream().filter((p)-> p.getName().equals(name)).collect(Collectors.toList());
+        return findAll().stream().filter((p) -> p.getName().equals(name)).collect(Collectors.toList());
     }
 
     @Override
-    public List<Gif> findAll(){
+    public List<Gif> findAll() {
         List<Gif> gifs = new ArrayList<>();
         int i = 1;
         for (String n : names) {
-            Gif gif = new Gif (n,"Username "+ i++);
-            if ( i%2==0){
+            Gif gif = new Gif(n, "Username " + i++);
+            if (i % 2 == 0) {
                 gif.setFavorite(true);
-            }
-            else{
+            } else {
                 gif.setFavorite(false);
             }
             gifs.add(gif);
-        }return gifs;
+        }
+        return gifs;
     }
 
     @Override
     public List<Gif> findFavorite() {
         List<Gif> gifs = new ArrayList<>();
-        int i=1;
+        int i = 1;
         for (Gif gif : findAll()) {
-           if ( gif.isFavorite())
-               gifs.add(gif);
+            if (gif.isFavorite())
+                gifs.add(gif);
         }
         return gifs;
-        }
+    }
 
 
-
-
-        @Override
-        public List<Category> addCategories(){
+    @Override
+    public List<Category> addCategories() {
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category("People mems",1));
-        categories.add(new Category("Creature mems",2));
+        categories.add(new Category("People mems", 1));
+        categories.add(new Category("Creature mems", 2));
         return categories;
-        }
+    }
 
 
 }
