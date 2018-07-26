@@ -1,4 +1,4 @@
-package pl.alkademiakodu.kwejk.Model;
+package pl.akademiakodu.giflibapp.Model;
 
 /**
  * Created by User on 2017-09-04.

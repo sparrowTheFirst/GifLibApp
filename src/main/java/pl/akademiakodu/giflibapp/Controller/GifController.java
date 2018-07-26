@@ -1,12 +1,13 @@
-package pl.alkademiakodu.kwejk.Controller;
+package pl.akademiakodu.giflibapp.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import pl.alkademiakodu.kwejk.Model.Category;
-import pl.alkademiakodu.kwejk.Model.Gif;
-import pl.alkademiakodu.kwejk.dao.GifDao;
+import pl.akademiakodu.giflibapp.Model.Category;
+import pl.akademiakodu.giflibapp.Model.Gif;
+import pl.akademiakodu.giflibapp.dao.GifDao;
+
 import java.util.List;
 
 @Controller
@@ -16,53 +17,52 @@ public class GifController {
     private GifDao gifDao;
 
     @GetMapping("/")
-    public String home(ModelMap modelMap){
+    public String home(ModelMap modelMap) {
         modelMap.addAttribute("gifs", gifDao.findAll());
         return "home";
     }
 
     @GetMapping("/gif/{name}")
-    public String homeResult (@PathVariable String name, ModelMap modelMap) {
+    public String homeResult(@PathVariable String name, ModelMap modelMap) {
         modelMap.addAttribute("gif", gifDao.findByName(name).get(0));
         return "gif-details";
     }
 
     @GetMapping("/search")
-    public String search (@RequestParam String q, ModelMap modelMap){
+    public String search(@RequestParam String q, ModelMap modelMap) {
         modelMap.addAttribute("gifs", gifDao.findByName(q));
-        if ( gifDao.findByName(q).isEmpty())
+        if (gifDao.findByName(q).isEmpty())
             modelMap.addAttribute("comment", "Nic nie znaleziono!");
         return "home";
     }
 
     @GetMapping("/favorites")
-        public String favoriteGifs(ModelMap modelMap){
-        modelMap.addAttribute("gifs",gifDao.findFavorite());
+    public String favoriteGifs(ModelMap modelMap) {
+        modelMap.addAttribute("gifs", gifDao.findFavorite());
         return "favorites";
     }
 
     @GetMapping("/categories")
-
-    public String categories(ModelMap modelMap){
-            modelMap.addAttribute("categories",gifDao.addCategories());
-            return "categories";
+    public String categories(ModelMap modelMap) {
+        modelMap.addAttribute("categories", gifDao.addCategories());
+        return "categories";
     }
 
     @RestController
     @RequestMapping("/api")
-    public class CategoryApiController{
+    public class CategoryApiController {
 
         @Autowired
         private GifDao gifDao;
 
         @RequestMapping("/categories")
-        public List<Category> getCategories(){
+        public List<Category> getCategories() {
             return gifDao.addCategories();
         }
 
         @RequestMapping("/gifs")
-        public List<Gif> getGifs (String q) {
+        public List<Gif> getGifs(String q) {
             return gifDao.findByName(q);
         }
-}
+    }
 }

@@ -1,7 +1,7 @@
-package pl.alkademiakodu.kwejk.dao;
+package pl.akademiakodu.giflibapp.dao;
 
-import pl.alkademiakodu.kwejk.Model.Category;
-import pl.alkademiakodu.kwejk.Model.Gif;
+import pl.akademiakodu.giflibapp.Model.Category;
+import pl.akademiakodu.giflibapp.Model.Gif;
 
 import java.util.List;
 

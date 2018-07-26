@@ -1,13 +1,12 @@
-package pl.alkademiakodu.kwejk.dao;
+package pl.akademiakodu.giflibapp.dao;
 
 import org.springframework.stereotype.Component;
-import pl.alkademiakodu.kwejk.Model.Category;
-import pl.alkademiakodu.kwejk.Model.Gif;
+import pl.akademiakodu.giflibapp.Model.Category;
+import pl.akademiakodu.giflibapp.Model.Gif;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 /**
  * Created by User on 2017-09-04.
@@ -58,12 +57,12 @@ public class GifDaoImp implements GifDao {
         List<Gif> gifs = new ArrayList<>();
         int i = 1;
         for (Gif gif : findAll()) {
-            if (gif.isFavorite())
+            if (gif.isFavorite()) {
                 gifs.add(gif);
+            }
         }
         return gifs;
     }
-
 
     @Override
     public List<Category> addCategories() {
@@ -72,6 +71,4 @@ public class GifDaoImp implements GifDao {
         categories.add(new Category("Creature mems", 2));
         return categories;
     }
-
-
 }
