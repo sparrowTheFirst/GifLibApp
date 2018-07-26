@@ -88,14 +88,6 @@ nav ul li.active, nav ul li:hover {
     color: #757378;
 }
 
-.gifs.container .col:nth-child(3n+1) {
-    padding-left: 0;
-}
-
-.gifs.container .col:nth-child(3n+3) {
-    padding-right: 0;
-}
-
 .gifs img {
     height: 220px;
     width: 100%;
